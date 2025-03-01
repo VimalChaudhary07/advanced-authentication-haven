@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 100% 50%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -32,22 +35,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,57 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .glass-morphism {
+    @apply bg-white/30 backdrop-blur-xl border border-white/20 shadow-auth;
+  }
+
+  .glass-input {
+    @apply bg-white/50 backdrop-blur-sm border border-white/30 focus:border-auth-primary focus:ring-1 focus:ring-auth-primary/50 transition-all duration-300;
+  }
+
+  .auth-button {
+    @apply rounded-full font-medium transition-all duration-300 transform hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .primary-button {
+    @apply bg-auth-primary text-white hover:bg-auth-primary/90 focus:ring-auth-primary/50;
+  }
+
+  .secondary-button {
+    @apply bg-white text-auth-foreground border border-auth-border hover:bg-gray-50 focus:ring-gray-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-auth-foreground mb-1;
+  }
+
+  .form-input {
+    @apply w-full rounded-lg px-4 py-2.5 glass-input placeholder:text-auth-muted/70 text-auth-foreground;
+  }
+
+  .auth-card {
+    @apply glass-morphism rounded-2xl p-8 w-full max-w-md mx-auto transition-all duration-300 hover:shadow-auth-hover;
+  }
+
+  .animated-bg {
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
   }
 }
